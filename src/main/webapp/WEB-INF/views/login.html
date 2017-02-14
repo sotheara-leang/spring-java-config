@@ -14,7 +14,6 @@
 						<div th:if="${session['SPRING_SECURITY_LAST_EXCEPTION'] != null}">
 							<div class="alert alert-danger" role="alert">
 								<span th:text="#{login.fail}"></span>
-								<!-- <span th:text="${session.remove('SPRING_SECURITY_LAST_EXCEPTION')}" th:remove="all"></span> -->
 							</div>
 						</div>
 						<form class="form-horizontal" action="" method="post">
