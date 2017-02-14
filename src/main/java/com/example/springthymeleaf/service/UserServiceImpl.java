@@ -10,9 +10,11 @@ import org.springframework.stereotype.Service;
 import com.example.springthymeleaf.domain.User;
 import com.example.springthymeleaf.repository.UserRepository;
 
+// Mark this class as service
 @Service
 public class UserServiceImpl implements UserService {
 	
+	// inject user repository
 	@Autowired
 	private UserRepository repository;
 	

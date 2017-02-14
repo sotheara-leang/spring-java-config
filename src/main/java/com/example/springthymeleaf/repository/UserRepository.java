@@ -6,6 +6,10 @@ import org.springframework.stereotype.Repository;
 
 import com.example.springthymeleaf.domain.User;
 
+/**
+ * Mark this class as repository
+ * extends QueryDslPredicateExecutor to work with query dsl
+ */
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>, QueryDslPredicateExecutor<User> {
 	

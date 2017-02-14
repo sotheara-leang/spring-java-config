@@ -7,8 +7,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HomeController {
 	
+	// Mapp this method to handle get request to "/"
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
+		// index is the view name
+		// thymeleaf will resolve it as /WEB/views/index.html. see MvcConfig
 		return "index";
 	}
 	

@@ -13,16 +13,27 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
+// map this class to table user - default
 @Table
+// set this is entity
 @Entity
+// User must implement UserDetails to used in authentication object
+// CredentialsContainer mean the password will be removed, see eraseCredentials()
 public class User implements UserDetails, CredentialsContainer {
 
 	private static final long serialVersionUID = -5227739888866155529L;
 	
+	/**
+	 * Mark this field as id and auto-generated.
+	 * default GenerationType.Auto. Provider will decide on id generating
+	 */
 	@Id
 	@GeneratedValue
 	private Long id;
 	
+	// Mark max size for username
+	// this field will map to column username in table user
+	// in case the name is different from table, use @Column(name="..")
 	@Size(max = 15)
 	private String username;
 	
