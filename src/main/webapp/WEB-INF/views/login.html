@@ -16,7 +16,7 @@
 								<span th:text="#{login.fail}"></span>
 							</div>
 						</div>
-						<form class="form-horizontal" action="" method="post">
+						<form class="form-horizontal" th:action="@{/login}" method="post">
 							<div class="form-group">
 								<label for="username" class="col-sm-4 control-label" th:text="#{username}">Username</label>
 								<div class="col-sm-7">
