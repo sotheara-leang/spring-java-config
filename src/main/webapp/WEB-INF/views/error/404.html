@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/default">
+<head>
+<title th:text="#{login}">Login</title>
+</head>
+<body>
+	<div layout:fragment="header"></div>
+	<div layout:fragment="content">
+		<div class="container-fluid margin-top-2">
+			<div class="jumbotron">
+				<h1 th:text="#{error.404}">Page not found</h1>
+				<p>
+					<a class="btn btn-primary btn-lg" href="#" role="button" th:href="@{/}" th:text="#{btn.backtohome}">Back to home page</a>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div layout:fragment="footer"></div>
+</body>
+</html>

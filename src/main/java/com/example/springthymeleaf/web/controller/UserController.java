@@ -73,4 +73,9 @@ public class UserController {
 		
 		return "redirect:/user";
 	}
+	
+	@RequestMapping(value= "error", method = RequestMethod.GET)
+	public String test505() throws Exception {
+		throw new Exception("Test 505");
+	}
 }
