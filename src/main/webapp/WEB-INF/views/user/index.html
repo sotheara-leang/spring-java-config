@@ -12,11 +12,13 @@
 	<table class="table table-hover">
   		<thead>
   			<tr>
-  				<th class="col-sm-1" th:text="#{id}">Id</th>
-  				<th class="col-sm-2" th:text="#{username}">User Name</th>
-  				<th class="col-sm-3" th:text="#{lastname}">Last Name</th>
-  				<th class="col-sm-3" th:text="#{firstname}">First Name</th>
-  				<th class="col-sm-2" th:text="#{action}">Action</th>
+  				<th th:text="#{id}">Id</th>
+  				<th th:text="#{username}">User Name</th>
+  				<th th:text="#{lastname}">Last Name</th>
+  				<th th:text="#{firstname}">First Name</th>
+  				<th th:text="#{create.date}">Create Date</th>
+  				<th th:text="#{update.date}">Update Date</th>
+  				<th th:text="#{action}">Action</th>
   			</tr>
   		</thead>
   		<tbody>
@@ -25,6 +27,8 @@
   				<td th:text="${user.username}">dara</td>
   				<td th:text="${user.lastName}">Sok</td>
   				<td th:text="${user.firstName}">Dara</td>
+  				<td th:text="${user.createDate}">Dara</td>
+  				<td th:text="${user.updateDate}">Dara</td>
   				<td>
   					<a class="btn btn-primary" role="button" th:text="#{btn.view}" th:href="@{'/user/view/' + ${user.id}}">View</a>
   					<a class="btn btn-primary" role="button" th:text="#{btn.delete}" th:href="@{'/user/delete/' + ${user.id}}">Delete</a>

@@ -11,3 +11,15 @@ CREATE TABLE user (
   updater_id BIGINT REFERENCES public.user(id),
   update_date TIMESTAMP
 );
+
+DROP TABLE role IF EXISTS;
+
+CREATE TABLE role (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(25),
+  description VARCHAR(255),
+  creator_id BIGINT REFERENCES public.user(id),
+  create_date TIMESTAMP,
+  updater_id BIGINT REFERENCES public.user(id),
+  update_date TIMESTAMP
+);

@@ -2,6 +2,7 @@ package com.example.springthymeleaf.domain;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -26,9 +27,11 @@ public class User extends AuditEntity implements UserDetails, CredentialsContain
 	private String password;
 	
 	@Size(max = 50)
+	@Column(name = "first_name")
 	private String firstName;
 	
 	@Size(max = 15)
+	@Column(name = "last_name")
 	private String lastName;
 	
 	@Transient

@@ -39,8 +39,6 @@ public class UserController {
 	
 	@RequestMapping(value= "register", method = RequestMethod.POST)
 	public String register(@ModelAttribute @Valid User user, BindingResult bindingResult) {
-		// @ModelAttribute is used to map user to request form data
-		// check if the user is invalid. To make it work, User should mark with @Valid
 		if (bindingResult.hasErrors()) {
 			return "user/register";
 		}
@@ -62,7 +60,13 @@ public class UserController {
 			return "user/view";
 		}
 		
-		userService.save(user);
+		User dbUser = userService.findOne(user.getId());
+		dbUser.setUsername(user.getUsername());
+		dbUser.setLastName(user.getLastName());
+		dbUser.setFirstName(user.getFirstName());
+		dbUser.setPassword(user.getPassword());
+		
+		userService.save(dbUser);
 		
 		return "redirect:/user";
 	}
