@@ -1,39 +1,24 @@
 package com.example.springthymeleaf.domain;
 
-import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.Size;
 
 import org.springframework.security.core.CredentialsContainer;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
-// map this class to table user - default
+import com.example.springthymeleaf.common.domain.AuditEntity;
+
 @Table
-// set this is entity
 @Entity
-// User must implement UserDetails to used in authentication object
-// CredentialsContainer mean the password will be removed, see eraseCredentials()
-public class User implements UserDetails, CredentialsContainer {
+public class User extends AuditEntity implements UserDetails, CredentialsContainer {
 
 	private static final long serialVersionUID = -5227739888866155529L;
 	
-	/**
-	 * Mark this field as id and auto-generated.
-	 * default GenerationType.Auto. Provider will decide on id generating
-	 */
-	@Id
-	@GeneratedValue
-	private Long id;
-	
-	// Mark max size for username
-	// this field will map to column username in table user
-	// in case the name is different from table, use @Column(name="..")
 	@Size(max = 15)
 	private String username;
 	
@@ -45,15 +30,22 @@ public class User implements UserDetails, CredentialsContainer {
 	
 	@Size(max = 15)
 	private String lastName;
+	
+	@Transient
+	private List<GrantedAuthority> authorities;
 
 	@Override
 	public void eraseCredentials() {
 		this.password = null;
 	}
 	
+	public void setAuthorities(List<GrantedAuthority> authorities) {
+		this.authorities = authorities;
+	}
+
 	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return AuthorityUtils.createAuthorityList("ROLE_USER");
+	public List<? extends GrantedAuthority> getAuthorities() {
+		return authorities;
 	}
 
 	@Override
@@ -86,14 +78,6 @@ public class User implements UserDetails, CredentialsContainer {
 		return true;
 	}
 	
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public void setUsername(String username) {
 		this.username = username;
 	}

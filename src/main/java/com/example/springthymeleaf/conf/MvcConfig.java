@@ -22,11 +22,8 @@ import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 
 import nz.net.ultraq.thymeleaf.LayoutDialect;
 
-//mark this class as configuration class
 @Configuration
-// enable web mvc
 @EnableWebMvc
-// define package to search for controller...
 @ComponentScan("com.example.springthymeleaf.web")
 public class MvcConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
 
@@ -37,28 +34,16 @@ public class MvcConfig extends WebMvcConfigurerAdapter implements ApplicationCon
 		this.applicationContext = applicationContext;
 	}
 
-	/**
-	 * Mapping url /resource/** to folder resources of webapp (webapp/resources) as the static resources
-	 * 
-	 */
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 	}
 
-	/**
-	 * Register local change interceptor
-	 */
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(localeChangeInterceptor());
 	}
 
-	/**
-	 * Define template resolver for thymeleaf template.
-	 * 
-	 * @return
-	 */
 	@Bean
 	public SpringResourceTemplateResolver thymeleafTemplateResolver() {
 		SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
@@ -71,12 +56,6 @@ public class MvcConfig extends WebMvcConfigurerAdapter implements ApplicationCon
 		return templateResolver;
 	}
 
-	/**
-	 * Define template enginer for thymeleaf
-	 * @param tempalteResolver
-	 * @param messageSource
-	 * @return
-	 */
 	@Bean
 	public SpringTemplateEngine templateEngine(SpringResourceTemplateResolver tempalteResolver,
 			MessageSource messageSource) {
@@ -91,11 +70,6 @@ public class MvcConfig extends WebMvcConfigurerAdapter implements ApplicationCon
 		return templateEngine;
 	}
 
-	/**
-	 * Thymeleaf view resolver
-	 * @param templateEngine
-	 * @return
-	 */
 	@Bean
 	public ThymeleafViewResolver thymeleafViewResolver(SpringTemplateEngine templateEngine) {
 		ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
@@ -106,10 +80,6 @@ public class MvcConfig extends WebMvcConfigurerAdapter implements ApplicationCon
 		return viewResolver;
 	}
 
-	/**
-	 * Use cookie for locale resolver
-	 * @return
-	 */
 	@Bean
 	public LocaleResolver localeResolver() {
 		CookieLocaleResolver localeResolver = new CookieLocaleResolver();
@@ -122,10 +92,6 @@ public class MvcConfig extends WebMvcConfigurerAdapter implements ApplicationCon
 		return localeResolver;
 	}
 
-	/**
-	 * for intercept locale from url /?lang=en or /?lang=fr
-	 * @return
-	 */
 	@Bean
 	public LocaleChangeInterceptor localeChangeInterceptor() {
 		LocaleChangeInterceptor localeIntercepter = new LocaleChangeInterceptor();

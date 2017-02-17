@@ -1,4 +1,4 @@
-package com.example.springthymeleaf.service;
+package com.example.springthymeleaf.service.user;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.example.springthymeleaf.domain.User;
-import com.example.springthymeleaf.repository.UserRepository;
+import com.example.springthymeleaf.repository.user.UserRepository;
 
 // Mark this class as service
 @Service

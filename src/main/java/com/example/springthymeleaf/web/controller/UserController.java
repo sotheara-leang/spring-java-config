@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.springthymeleaf.domain.User;
-import com.example.springthymeleaf.service.UserService;
+import com.example.springthymeleaf.service.user.UserService;
 
 @Controller
 @RequestMapping("/user")

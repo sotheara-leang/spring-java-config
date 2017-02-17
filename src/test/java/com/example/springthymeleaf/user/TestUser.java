@@ -10,13 +10,19 @@ import org.thymeleaf.util.ListUtils;
 import com.example.springthymeleaf.AbstractTest;
 import com.example.springthymeleaf.domain.QUser;
 import com.example.springthymeleaf.domain.User;
-import com.example.springthymeleaf.repository.UserRepository;
+import com.example.springthymeleaf.repository.user.UserRepository;
 import com.mysema.query.types.Predicate;
 
 public class TestUser extends AbstractTest {
 
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Override
+	public void setup() {
+		super.setup();
+		setupAuth(adminUser());
+	}
 
 	@Test
 	public void testFindUserByUsername() {
@@ -33,6 +39,9 @@ public class TestUser extends AbstractTest {
 
 		userRepository.save(user);
 		Assert.assertNotNull(user.getId());
+		
+		User user2 = userRepository.findOne(user.getId());
+		System.out.println(user2);
 	}
 
 	@SuppressWarnings("unchecked")

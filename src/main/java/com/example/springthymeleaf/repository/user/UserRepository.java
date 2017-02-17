@@ -1,4 +1,4 @@
-package com.example.springthymeleaf.repository;
+package com.example.springthymeleaf.repository.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.querydsl.QueryDslPredicateExecutor;

@@ -1,4 +1,4 @@
-package com.example.springthymeleaf.service;
+package com.example.springthymeleaf.service.user;
 
 import java.util.List;
 
