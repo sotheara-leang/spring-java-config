@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.springthymeleaf.domain.User;
+import com.example.springthymeleaf.service.role.RoleService;
 import com.example.springthymeleaf.service.user.UserService;
 
 @Controller
@@ -20,6 +21,9 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private RoleService roleService;
 	
 	@ModelAttribute("user")
 	public User emptyUser() {
@@ -33,7 +37,8 @@ public class UserController {
 	}
 	
 	@RequestMapping(value= "register", method = RequestMethod.GET)
-	public String getAddForm() {
+	public String getAddForm(Model model) {
+		model.addAttribute("roles", roleService.findAll());
 		return "user/register";
 	}
 	
