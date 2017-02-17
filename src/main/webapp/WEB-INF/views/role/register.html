@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/default">
+<head>
+<title th:text="#{users}"></title>
+</head>
+<body>
+<div layout:fragment="content">
+<div class="container-fluid">
+	<div class="row">
+		<h3 class="text-center" th:text="#{user.add}"></h3>
+		<div class="col-sm-10 col-md-offset-1 margin-top-2">
+			<form class="form-horizontal" action="#" th:action="@{/role/register}" th:object="${role}" method="post">
+				<div class="form-group" th:classappend="${#fields.hasErrors('name')} ? 'has-error'">
+					<label for="name" class="col-sm-2 control-label" th:text="#{name}">Last Name</label>
+					<div class="col-sm-9">
+						<input type="text" id="description" class="form-control" th:field="*{name}" />
+						<span class="help-block" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+					</div>
+				</div>
+				
+				<div class="form-group" th:classappend="${#fields.hasErrors('description')} ? 'has-error'">
+					<label for="description" class="col-sm-2 control-label" th:text="#{description}">First Name</label>
+					<div class="col-sm-9">
+						<input type="text" id="description" class="form-control" th:field="*{description}" />
+						<span class="help-block" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+					</div>
+				</div>
+				
+				<div class="form-group text-center">
+					<div class="col-sm-offset-1 col-sm-10">
+						<button type="submit" class="btn btn-default" th:text="#{btn.save}">Register</button>
+						<a class="btn btn-default" role="button" th:text="#{btn.back}" th:href="@{/role}">Back</a>
+					</div>
+				</div>
+			</form>		
+		</div>
+	</div>
+</div>
+</div>
+</body>
+</html>

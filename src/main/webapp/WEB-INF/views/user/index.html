@@ -27,8 +27,8 @@
   				<td th:text="${user.username}">dara</td>
   				<td th:text="${user.lastName}">Sok</td>
   				<td th:text="${user.firstName}">Dara</td>
-  				<td th:text="${user.createDate}">Dara</td>
-  				<td th:text="${user.updateDate}">Dara</td>
+  				<td th:text="${user.createDate}"></td>
+  				<td th:text="${user.updateDate}"></td>
   				<td>
   					<a class="btn btn-primary" role="button" th:text="#{btn.view}" th:href="@{'/user/view/' + ${user.id}}">View</a>
   					<a class="btn btn-primary" role="button" th:text="#{btn.delete}" th:href="@{'/user/delete/' + ${user.id}}">Delete</a>

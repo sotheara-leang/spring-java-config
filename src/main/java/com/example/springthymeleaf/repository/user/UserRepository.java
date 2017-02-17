@@ -14,6 +14,4 @@ import com.example.springthymeleaf.domain.User;
 public interface UserRepository extends JpaRepository<User, Long>, QueryDslPredicateExecutor<User> {
 	
 	User findByUsername(String username);
-	
-	
 }

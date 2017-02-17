@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/default">
+<head>
+<title th:text="#{users}"></title>
+</head>
+<body>
+<div layout:fragment="content">
+<div class="container-fluid">
+	<div class="well well-sm">
+		<a class="btn btn-primary" role="button" th:text="#{btn.register}" th:href="@{/role/register}">Register</a>
+	</div> 
+	<table class="table table-hover">
+  		<thead>
+  			<tr>
+  				<th th:text="#{id}">Id</th>
+  				<th th:text="#{name}">Name</th>
+  				<th th:text="#{description}">Description</th>
+  				<th th:text="#{create.date}">Create Date</th>
+  				<th th:text="#{update.date}">Update Date</th>
+  				<th th:text="#{action}">Action</th>
+  			</tr>
+  		</thead>
+  		<tbody>
+  			<tr th:each="role : ${roles}">
+  				<td th:text="${role.id}">123</td>
+  				<td th:text="${role.name}">Admin</td>
+  				<td th:text="${role.description}">Admin User</td>
+  				<td th:text="${role.createDate}"></td>
+  				<td th:text="${role.updateDate}"></td>
+  				<td>
+  					<a class="btn btn-primary" role="button" th:text="#{btn.view}" th:href="@{'/role/view/' + ${role.id}}">View</a>
+  					<a class="btn btn-primary" role="button" th:text="#{btn.delete}" th:href="@{'/role/delete/' + ${role.id}}">Delete</a>
+  				</td>
+  			</tr>
+  		</tbody>
+	</table>
+
+</div>
+</div>
+</body>
+</html>

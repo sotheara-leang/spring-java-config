@@ -23,3 +23,8 @@ CREATE TABLE role (
   updater_id BIGINT REFERENCES public.user(id),
   update_date TIMESTAMP
 );
+
+ALTER TABLE user ADD role_id BIGINT AFTER first_name;
+
+ALTER TABLE user ADD CONSTRAINT role_id_fk foreign key (role_id) REFERENCES public.role(id);
+

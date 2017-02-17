@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.Size;
@@ -34,6 +36,9 @@ public class User extends AuditEntity implements UserDetails, CredentialsContain
 	@Column(name = "last_name")
 	private String lastName;
 	
+	@OneToOne(fetch = FetchType.LAZY)
+	private Role role;
+	
 	@Transient
 	private List<GrantedAuthority> authorities;
 
@@ -42,6 +47,14 @@ public class User extends AuditEntity implements UserDetails, CredentialsContain
 		this.password = null;
 	}
 	
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
 	public void setAuthorities(List<GrantedAuthority> authorities) {
 		this.authorities = authorities;
 	}

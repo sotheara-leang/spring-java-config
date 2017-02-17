@@ -17,7 +17,8 @@
 	
 	<div class="collapse navbar-collapse" id="navbar-collapse-1">
 		<ul class="nav navbar-nav navbar-right">
-			<li><a th:text="#{users}" th:href="@{/user}">User</a></li>
+			<li><a th:text="#{users}" th:href="@{/user}">Users</a></li>
+			<li><a th:text="#{roles}" th:href="@{/role}">Roles</a></li>
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 					<span sec:authentication="name">Auth name</span> <span class="caret"></span>

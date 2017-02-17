@@ -1,4 +1,4 @@
-package com.example.springthymeleaf.web.controller;
+package com.example.springthymeleaf.web.controller.user;
 
 import javax.validation.Valid;
 
