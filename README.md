@@ -1,6 +1,6 @@
 # spring-thymeleaf
 
-Practice on:
+#### Practice on:
 
 Spring MVC + Thymeleaf
 
@@ -10,6 +10,8 @@ Spring Security
 
 Spring Test (Service, MVC, Security)
 
+
+#### Tips
 
 Fix Eclipse Error with QueryDSL
 
