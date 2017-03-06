@@ -1,6 +1,6 @@
 # spring-thymeleaf
 
-1. To practice on:
+Practice on:
 
 Spring MVC + Thymeleaf
 
@@ -11,7 +11,6 @@ Spring Security
 Spring Test (Service, MVC, Security)
 
 
-
-2. Fix Eclipse Error with QueryDSL
+Fix Eclipse Error with QueryDSL
 
 http://forum.spring.io/forum/spring-projects/data/126292-issues-with-querydsl-and-maven-pom-in-eclipse
